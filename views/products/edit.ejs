@@ -3,19 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add new item</title>
+    <title>product</title>
   </head>
   <body>
-    <h1>Add a product</h1>
-    <form action="/products" method="POST">
+    <h1>Edit product</h1>
+    <form action="/products/<%= product._id%>?_method=PUT" method="POST">
       <label for="name">Product Name</label>
-      <input type="text" name="name" id="name" placeholder="product name" />
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="product name"
+        value="<%= product.name %>"
+      />
       <label for="price">Price (Unit)</label>
       <input
         type="number"
         id="price"
         name="price"
         placeholder="price"
+        value="<%= product.price %>"
       />
       <label for="category">Select Category</label>
       <select name="category" id="category">
@@ -25,5 +32,7 @@
       </select>
       <button>Submit</button>
     </form>
+  <a href="/products/<%= product._id %>">Cancel</a>
+
   </body>
 </html>
