@@ -61,6 +61,14 @@ app.put("/products/:id", async (req, res) => {
   res.redirect(`/products/${product._id }`)
 });
 
+// Delete routes
+app.delete('/products/:id', async (req, res) => {
+  const {id} = req.params
+  const removeItem = await Product.findByIdAndDelete(id)
+  res.redirect('/products')
+})
+
+
 //Categories
 const categories = ['fruit', 'vegetable', 'dairy']
 
